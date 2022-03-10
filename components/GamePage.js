@@ -1,6 +1,8 @@
+import Link from "next/link";
 import { useRouter } from "next/router";
 import Button from "../components/Button";
 import Player from "../components/Player";
+import Anchor from "./Anchor";
 
 export default function GamePage({
   nameOfGame,
@@ -9,7 +11,6 @@ export default function GamePage({
   onDecreasePlayerScore,
   onIncreasePlayerScore,
 }) {
-  const { push } = useRouter();
   return (
     <>
       <header>
@@ -25,7 +26,9 @@ export default function GamePage({
         />
       ))}
       <Button onClick={onResetScores}>Reset scores</Button>
-      <Button onClick={() => push("/")}>End game</Button>
+      <Link href="/" passHref>
+        <Anchor as="a">End game</Anchor>
+      </Link>
     </>
   );
 }

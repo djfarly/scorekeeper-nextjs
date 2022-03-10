@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import styled from "styled-components";
+import Anchor from "./Anchor";
 import Button from "./Button";
 
 export default function HistoryEntry({ id, nameOfGame, players }) {
@@ -9,6 +10,9 @@ export default function HistoryEntry({ id, nameOfGame, players }) {
   return (
     <Wrapper>
       <GameTitle>{nameOfGame}</GameTitle>
+      <Link href={`/game/${id}`} passHref>
+        <Anchor as="a">Continue game →</Anchor>
+      </Link>
       <Button onClick={() => setScoreToggle(!scoreToggle)}>Show score</Button>
       {scoreToggle &&
         players.map(({ name, score, id }) => (
@@ -17,7 +21,6 @@ export default function HistoryEntry({ id, nameOfGame, players }) {
             <span>{score}</span>
           </Player>
         ))}
-      <Link href={`/game/${id}`}>Continue game →</Link>
     </Wrapper>
   );
 }

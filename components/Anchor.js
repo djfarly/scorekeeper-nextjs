@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
-export default styled.button`
-  background-color: ${(props) => (props.isActive ? "#333" : "lightgray")};
+export default styled.a`
+  background-color: ${(props) => (props.isActive ? "#333" : "transparent")};
   color: ${(props) => (props.isActive ? "white" : "inherit")};
-  border: 1px solid black;
   width: 100%;
   padding: 0.6rem;
   text-align: center;

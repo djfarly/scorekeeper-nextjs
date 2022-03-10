@@ -6,7 +6,7 @@ export default function Input({
   name,
   value,
   onChange,
-  required
+  required,
 }) {
   return (
     <>
@@ -26,4 +26,5 @@ export default function Input({
 
 const InputStyled = styled.input`
   border: 2px solid #bbb;
+  border-radius: 2px;
 `;
