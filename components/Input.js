@@ -27,4 +27,5 @@ export default function Input({
 const InputStyled = styled.input`
   border: 2px solid #bbb;
   border-radius: 2px;
+  padding: 0.6rem;
 `;

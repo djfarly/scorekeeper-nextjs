@@ -5,7 +5,7 @@ import Anchor from "./Anchor";
 import Button from "./Button";
 
 export default function HistoryEntry({ id, nameOfGame, players }) {
-  const [scoreToggle, setScoreToggle] = useState(false);
+  const [showScore, setShowScore] = useState(false);
 
   return (
     <Wrapper>
@@ -13,8 +13,10 @@ export default function HistoryEntry({ id, nameOfGame, players }) {
       <Link href={`/game/${id}`} passHref>
         <Anchor as="a">Continue game →</Anchor>
       </Link>
-      <Button onClick={() => setScoreToggle(!scoreToggle)}>Show score</Button>
-      {scoreToggle &&
+      <Button onClick={() => setShowScore(!showScore)}>
+        {showScore ? "Hide score" : "Show score"}
+      </Button>
+      {showScore &&
         players.map(({ name, score, id }) => (
           <Player key={id}>
             <span>{name}</span>
