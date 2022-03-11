@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useRouter } from "next/router";
 import GamePage from "../../components/GamePage";
 
@@ -17,16 +18,21 @@ export default function Game({
 
   const { nameOfGame, players } = game;
   return (
-    <GamePage
-      nameOfGame={nameOfGame}
-      players={players}
-      onResetScores={() => resetScores(gameId)}
-      onDecreasePlayerScore={(playerId) =>
-        decreasePlayerScore(gameId, playerId)
-      }
-      onIncreasePlayerScore={(playerId) =>
-        increasePlayerScore(gameId, playerId)
-      }
-    />
+    <>
+      <Head>
+        <title>{nameOfGame} — Scorekeeper</title>
+      </Head>
+      <GamePage
+        nameOfGame={nameOfGame}
+        players={players}
+        onResetScores={() => resetScores(gameId)}
+        onDecreasePlayerScore={(playerId) =>
+          decreasePlayerScore(gameId, playerId)
+        }
+        onIncreasePlayerScore={(playerId) =>
+          increasePlayerScore(gameId, playerId)
+        }
+      />
+    </>
   );
 }
